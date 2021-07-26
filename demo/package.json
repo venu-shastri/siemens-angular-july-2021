@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Test Package",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.ts"
+  },
+  "keywords": [
+    "node",
+    "test",
+    "npm"
+  ],
+  "author": "venu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
