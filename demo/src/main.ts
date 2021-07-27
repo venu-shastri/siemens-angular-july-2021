@@ -6,11 +6,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
+app.get('/', (req:any, res:any) => {
   res.send('Hello World!')
 })
 
-app.get('/index.html', (req, res) => {
+app.get('/index.html', (req:any, res:any) => {
     res.send('Hello World! from index.html')
   })
 
