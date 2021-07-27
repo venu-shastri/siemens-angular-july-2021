@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./output/main.js",
-    "compile":"npx tsc"
+    "compile":"npx tsc",
+    "execute":"npx tsc && node ./output/main.js"
     
   },
   "keywords": [
