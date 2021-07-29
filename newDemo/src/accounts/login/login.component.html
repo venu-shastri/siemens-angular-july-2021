@@ -1,0 +1,28 @@
+<p>login works!</p>
+<table>
+  <tr>
+    <td>
+    UserName:
+    </td>
+    <td>
+      <input #userNameTextBox type="text" [value]="userName" (input)="onUserNameChanged(userNameTextBox.value)"/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    Password:
+    </td>
+    <td>
+      <input #passwordTextBox type="password" [value]="password" (input)="onPasswordChanged(passwordTextBox.value)"/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <input type="button" value="Login" (click)="onLogin()"/>
+    </td>
+    <td>
+      <input type="button" value="Clear" (click)="onClear()"/>
+    </td>
+  </tr>
+</table>
+<output>{{loginStatus}}</output>

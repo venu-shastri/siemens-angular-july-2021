@@ -8,3 +8,11 @@ function invokeAsync() {
 }
 var statusCallback = invokeAsync();
 statusCallback();
+function test() {
+    var valueOfThis = this.message;
+    return function () {
+        console.log(this.message);
+    };
+}
+var fun = test.apply({ message: "hello" });
+fun();
