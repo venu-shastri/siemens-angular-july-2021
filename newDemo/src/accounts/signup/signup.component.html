@@ -2,25 +2,25 @@
 <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
   <p>
     <label>UserName</label>
-    <input type="text" id="userName" name="userName" [(ngModel)]="name" #userName="ngModel" required/>
+    <input type="text" id="userName" name="userName" [(ngModel)]="name" #userNameFormControlRef="ngModel" required/>
   </p>
-  <div *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)">
+  <div *ngIf="!userNameFormControlRef?.valid && (userNameFormControlRef?.dirty || userNameFormControlRef?.touched)">
     <!-- Give Error Feedback-->
   <output>User Name Required</output>
 
   </div>
   <p>
     <label>Password</label>
-    <input type="text" id="password" name="password" [(ngModel)]="pass" #password="ngModel" required minlength="5" maxlength="10"/>
+    <input type="text" id="password" name="password" [(ngModel)]="pass" #passwordFormControlRef="ngModel" required minlength="5" maxlength="10"/>
   </p>
-  <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+  <div *ngIf="!passwordFormControlRef?.valid && (passwordFormControlRef?.dirty || passwordFormControlRef?.touched)">
     <!-- Give Error Feedback-->
-    <div *ngIf="password.errors?.required">
+    <div *ngIf="passwordFormControlRef.errors?.required">
       <output>Password is  Required</output>
     </div>
 
-     <div *ngIf="password.errors?.maxlength">
-      <output>Password maxLength is {{password.errors?.maxlength?.requiredLength}}</output>
+     <div *ngIf="passwordFormControlRef.errors?.maxlength">
+      <output>Password maxLength is {{passwordFormControlRef.errors?.maxlength?.requiredLength}}</output>
      </div>
 
   </div>
