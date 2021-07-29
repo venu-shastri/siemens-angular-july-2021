@@ -36,8 +36,5 @@ this.password="";
 onUserNameChanged(data:string){
 this.userName=data;
   }
-  onPasswordChanged(data:string){
-this.password=data;
-  }
-
+ 
 }

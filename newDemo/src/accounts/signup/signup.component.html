@@ -1,1 +1,49 @@
 <p>signup works!</p>
+<form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
+  <p>
+    <label>UserName</label>
+    <input type="text" id="userName" name="userName" [(ngModel)]="name" #userName="ngModel" required/>
+  </p>
+  <div *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)">
+    <!-- Give Error Feedback-->
+  <output>User Name Required</output>
+
+  </div>
+  <p>
+    <label>Password</label>
+    <input type="text" id="password" name="password" [(ngModel)]="pass" #password="ngModel" required minlength="5" maxlength="10"/>
+  </p>
+  <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+    <!-- Give Error Feedback-->
+    <div *ngIf="password.errors?.required">
+      <output>Password is  Required</output>
+    </div>
+
+     <div *ngIf="password.errors?.maxlength">
+      <output>Password maxLength is {{password.errors?.maxlength?.requiredLength}}</output>
+     </div>
+
+  </div>
+  <p>
+    <label>Email</label>
+    <input type="text" id="email" name="email" #emailRef=ngModel [(ngModel)]="email" required email/>
+  </p>
+  <div *ngIf="!emailRef?.valid && (emailRef?.dirty || emailRef?.touched)">
+    <!-- Give Error Feedback-->
+    <div *ngIf="emailRef.errors?.required">
+      <output>Password is  Required</output>
+    </div>
+
+     <div *ngIf="emailRef.errors?.email">
+      <output>Inavlid Email Address</output>
+     </div>
+
+  </div>
+  <p>
+
+    <button type="submit" [disabled]="!signupForm.valid" >Signup</button>
+  </p>
+  <p>
+    <button (click)="onClear(signupForm)">Clear</button>
+  </p>
+</form>
