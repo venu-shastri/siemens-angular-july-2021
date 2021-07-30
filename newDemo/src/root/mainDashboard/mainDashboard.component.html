@@ -1,10 +1,11 @@
 <fieldset>
   <legend><h1>MainDashBoard Component! Content</h1></legend>
-  <output>Login Status : {{loginStatus}}</output>
+  <output>Login Status : {{loginComp.loginStatus}}</output>
   <!-- ViewChild -->
-<login-comp [headerContent]="'Enter Credentils Here'" (loginStatusChanged)="onLoginStatusChanged($event)"></login-comp>
+<login-comp #loginComp [headerContent]="loginHeaderMessage" (loginStatusChanged)="onLoginStatusChanged($event)"></login-comp>
 
 <signup-comp></signup-comp>
+<output>New User Info:</output>
 
 </fieldset>
 

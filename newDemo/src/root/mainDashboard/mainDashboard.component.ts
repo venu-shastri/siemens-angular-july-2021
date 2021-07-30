@@ -1,4 +1,4 @@
-import {Component} from "@angular/core"
+import {Component, Input} from "@angular/core"
 
 
 @Component({
@@ -7,8 +7,11 @@ import {Component} from "@angular/core"
 })
 export class MainDashboardComponent{
   loginStatus:string;
+  @Input()
+  loginHeaderMessage:string;
   constructor(){
     this.loginStatus="unknown";
+    this.loginHeaderMessage="Enter Credentials Here ";
   }
   //Observer- Event Handler
   onLoginStatusChanged(status:string){
