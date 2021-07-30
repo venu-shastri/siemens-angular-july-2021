@@ -1,49 +1,53 @@
-<p>signup works!</p>
-<form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
-  <p>
-    <label>UserName</label>
-    <input type="text" id="userName" name="userName" [(ngModel)]="name" #userNameFormControlRef="ngModel" required/>
-  </p>
-  <div *ngIf="!userNameFormControlRef?.valid && (userNameFormControlRef?.dirty || userNameFormControlRef?.touched)">
-    <!-- Give Error Feedback-->
-  <output>User Name Required</output>
+<fieldset>
+  <legend><p>Signup Works!</p></legend>
+  <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
+    <p>
+      <label>UserName</label>
+      <input type="text" id="userName" name="userName" [(ngModel)]="name" #userNameFormControlRef="ngModel" required/>
+    </p>
+    <div *ngIf="!userNameFormControlRef?.valid && (userNameFormControlRef?.dirty || userNameFormControlRef?.touched)">
+      <!-- Give Error Feedback-->
+    <output>User Name Required</output>
 
-  </div>
-  <p>
-    <label>Password</label>
-    <input type="text" id="password" name="password" [(ngModel)]="pass" #passwordFormControlRef="ngModel" required minlength="5" maxlength="10"/>
-  </p>
-  <div *ngIf="!passwordFormControlRef?.valid && (passwordFormControlRef?.dirty || passwordFormControlRef?.touched)">
-    <!-- Give Error Feedback-->
-    <div *ngIf="passwordFormControlRef.errors?.required">
-      <output>Password is  Required</output>
     </div>
+    <p>
+      <label>Password</label>
+      <input type="text" id="password" name="password" [(ngModel)]="pass" #passwordFormControlRef="ngModel" required minlength="5" maxlength="10"/>
+    </p>
+    <div *ngIf="!passwordFormControlRef?.valid && (passwordFormControlRef?.dirty || passwordFormControlRef?.touched)">
+      <!-- Give Error Feedback-->
+      <div *ngIf="passwordFormControlRef.errors?.required">
+        <output>Password is  Required</output>
+      </div>
 
-     <div *ngIf="passwordFormControlRef.errors?.maxlength">
-      <output>Password maxLength is {{passwordFormControlRef.errors?.maxlength?.requiredLength}}</output>
-     </div>
+       <div *ngIf="passwordFormControlRef.errors?.maxlength">
+        <output>Password maxLength is {{passwordFormControlRef.errors?.maxlength?.requiredLength}}</output>
+       </div>
 
-  </div>
-  <p>
-    <label>Email</label>
-    <input type="text" id="email" name="email" #emailRef=ngModel [(ngModel)]="email" required email/>
-  </p>
-  <div *ngIf="!emailRef?.valid && (emailRef?.dirty || emailRef?.touched)">
-    <!-- Give Error Feedback-->
-    <div *ngIf="emailRef.errors?.required">
-      <output>Password is  Required</output>
     </div>
+    <p>
+      <label>Email</label>
+      <input type="text" id="email" name="email" #emailRef=ngModel [(ngModel)]="email" required email/>
+    </p>
+    <div *ngIf="!emailRef?.valid && (emailRef?.dirty || emailRef?.touched)">
+      <!-- Give Error Feedback-->
+      <div *ngIf="emailRef.errors?.required">
+        <output>Password is  Required</output>
+      </div>
 
-     <div *ngIf="emailRef.errors?.email">
-      <output>Inavlid Email Address</output>
-     </div>
+       <div *ngIf="emailRef.errors?.email">
+        <output>Inavlid Email Address</output>
+       </div>
 
-  </div>
-  <p>
+    </div>
+    <p>
 
-    <button type="submit" [disabled]="!signupForm.valid" >Signup</button>
-  </p>
-  <p>
-    <button (click)="onClear(signupForm)">Clear</button>
-  </p>
-</form>
+      <button type="submit" [disabled]="!signupForm.valid" >Signup</button>
+    </p>
+    <p>
+      <button (click)="onClear(signupForm)">Clear</button>
+    </p>
+  </form>
+</fieldset>
+
+
