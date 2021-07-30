@@ -1,4 +1,5 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter, Inject } from '@angular/core';
+
 
 @Component({
   selector: 'login-comp',
@@ -8,12 +9,16 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 export class LoginComponent implements OnInit {
   userName:string;
   password:string;
+  //Dependency
   loginStatus:string;
+  _logger:any;
   @Input()
   headerContent:string;
   @Output()
   loginStatusChanged=new EventEmitter<string>();
-  constructor() {
+  //Constructor Injection
+  constructor(@Inject("logger")logger:any) {
+    this._logger=logger;
 
     this.userName="Enter User Name Here";
     this.password="Enter Password Here";
@@ -24,7 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLogin(){
-    console.log(`OnLogin Clicked ${this.userName},${this.password}`);
+    this._logger.write(`OnLogin Clicked ${this.userName},${this.password}`);
     if(this.userName=="tom" && this.password=="tom@123"){
       this.loginStatus="Valid";
 

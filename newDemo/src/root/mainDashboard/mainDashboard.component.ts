@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core"
+import {Component, Input,Inject} from "@angular/core"
+
 
 
 @Component({
@@ -6,16 +7,19 @@ import {Component, Input} from "@angular/core"
   selector:"main-dash-board" //Element Selector <main-dash-board>
 })
 export class MainDashboardComponent{
-  loginStatus:string;
-  @Input()
-  loginHeaderMessage:string;
-  constructor(){
+  constructor(@Inject("logger")logger:any){
     this.loginStatus="unknown";
     this.loginHeaderMessage="Enter Credentials Here ";
+    this._logger=logger;
   }
+  loginStatus:string;
+  _logger:any;
+  @Input()
+  loginHeaderMessage:string;
   //Observer- Event Handler
   onLoginStatusChanged(status:string){
 
+    this._logger.write("MainDashboardComponent -> onLoginStatusChanged");
     this.loginStatus=status;
   }
 }
