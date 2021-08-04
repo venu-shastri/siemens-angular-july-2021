@@ -99,7 +99,7 @@ ___
   
     constructor(private element:ElementRef,private renderer:Renderer2) {
   							/* p */     /*style property and value*/
-      this.renderer.setStyle(this.element,'color','red');
+      this.renderer.setStyle(this.element.nativeElement,'color','red');
      }
 
   }
