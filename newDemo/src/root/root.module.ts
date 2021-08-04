@@ -1,15 +1,20 @@
 import {NgModule} from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { MainDashboardComponent } from './mainDashboard/mainDashboard.component'
 import { AccountsModule } from 'src/accounts/accounts.module'
+import { RootRoutingModule } from './root-routing.module'
+import { MainDashboardComponent } from './mainDashboard/mainDashboard.component'
 import { ConsoleLogger } from 'src/services/consoleLogger.service'
-import { ApiLogger } from 'src/services/apiLogger.service'
+import { ApiLogger } from 'src/services/apiLogger.service';
+import { HomeComponent } from './home/home.component';
+import { AppComponent } from './app/app.component';
+import { NavigationbarComponent } from './navigationbar/navigationbar.component'
+import { NavigationBarRouteDeactivateGuard } from 'src/routeGuards/navigationBarRouteDeactivateGuard'
 
 @NgModule({
-  declarations:[MainDashboardComponent],
-  imports:[BrowserModule,AccountsModule],
-  bootstrap:[MainDashboardComponent],
-  providers:[{provide:"logger",useClass:ApiLogger}]
+  declarations:[MainDashboardComponent, HomeComponent, AppComponent, NavigationbarComponent],
+  imports:[BrowserModule,AccountsModule,RootRoutingModule],
+  bootstrap:[AppComponent],
+  providers:[{provide:"logger",useClass:ApiLogger},[NavigationBarRouteDeactivateGuard]]
 })
 export class RootModule{
 

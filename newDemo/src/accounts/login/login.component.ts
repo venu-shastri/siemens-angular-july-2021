@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter, Inject } from '@angular/core';
-
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'login-comp',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   @Output()
   loginStatusChanged=new EventEmitter<string>();
   //Constructor Injection
-  constructor(@Inject("logger")logger:any) {
+  constructor(@Inject("logger")logger:any,public routerService:Router) {
     this._logger=logger;
 
     this.userName="Enter User Name Here";
@@ -32,13 +32,14 @@ export class LoginComponent implements OnInit {
     this._logger.write(`OnLogin Clicked ${this.userName},${this.password}`);
     if(this.userName=="tom" && this.password=="tom@123"){
       this.loginStatus="Valid";
-
+      //Activate Route State.....
+      this.routerService.navigate(['/navigation',this.userName]);
     }
     else{
       this.loginStatus="InValid";
     }
     //Emit an Event
-    this.loginStatusChanged.emit(this.loginStatus);
+    //this.loginStatusChanged.emit(this.loginStatus);
   }
   onClear(){
 this.loginStatus="";
