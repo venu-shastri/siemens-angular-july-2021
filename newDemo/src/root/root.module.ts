@@ -9,9 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app/app.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component'
 import { NavigationBarRouteDeactivateGuard } from 'src/routeGuards/navigationBarRouteDeactivateGuard'
-
+import { ApplyRedColorDirective } from 'src/directives/applyRedColor.directive'
+import {ChangeBgColorDirective} from 'src/directives/changeBgColor.directive';
+import { ContainerComponent } from './container/container.component';
+import { VchildComponent } from './vchild/vchild.component';
+import { ContentchildComponent } from './contentchild/contentchild.component'
 @NgModule({
-  declarations:[MainDashboardComponent, HomeComponent, AppComponent, NavigationbarComponent],
+  declarations:[MainDashboardComponent, HomeComponent, AppComponent, NavigationbarComponent,ApplyRedColorDirective,ChangeBgColorDirective, ContainerComponent, VchildComponent, ContentchildComponent],
   imports:[BrowserModule,AccountsModule,RootRoutingModule],
   bootstrap:[AppComponent],
   providers:[{provide:"logger",useClass:ApiLogger},[NavigationBarRouteDeactivateGuard]]
