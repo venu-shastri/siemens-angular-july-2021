@@ -12,11 +12,7 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @ContentChild("child1")
-  child1:ContentchildComponent;
-
-  @ViewChild()
-  vchildRef:VchildComponent;
+  
 
 
 
